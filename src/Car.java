@@ -3,27 +3,29 @@ import java.awt.*;
 
 public class Car{
 
-    String pictureAdress;
+    String pictureAddress;
     int wins;
     int xPosition;
     int yPosition;
     int speedCarOne = (int)(Math.random()*10+1);
     Image image;
+    String name;
 
-    public Car(String pictureAdress, int wins, int xPosition, int yPosition) {
-        this.pictureAdress = pictureAdress;
+    public Car(String pictureAddress, int wins, int xPosition, int yPosition, String name) {
+        this.pictureAddress = pictureAddress;
         this.wins = wins;
         this.xPosition = xPosition;
         this.yPosition = yPosition;
-        image = new ImageIcon(pictureAdress).getImage();
+        this.name = name;
+        image = new ImageIcon(pictureAddress).getImage();
     }
 
     public Image getImage() {
         return image;
     }
 
-    public String getPictureAdress() {
-        return pictureAdress;
+    public String getPictureAddress() {
+        return pictureAddress;
     }
 
     public int getWins() {
