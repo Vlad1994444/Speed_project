@@ -20,6 +20,11 @@ public class Car{
         image = new ImageIcon(pictureAddress).getImage();
     }
 
+    public Car(int wins, String name) {
+        this.wins = wins;
+        this.name = name;
+    }
+
     public Image getImage() {
         return image;
     }
