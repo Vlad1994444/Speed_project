@@ -7,7 +7,7 @@ public class Car{
     int wins;
     int xPosition;
     int yPosition;
-    int speedCarOne = (int)(Math.random()*10+1);
+    int speedCar = (int)(Math.random()*10+1);
     Image image;
     String name;
 
@@ -46,7 +46,7 @@ public class Car{
     }
 
     public int getSpeedCarOne() {
-        return speedCarOne;
+        return speedCar;
     }
 
     public void setxPosition(int xPosition) {
