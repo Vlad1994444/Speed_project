@@ -1,6 +1,13 @@
+import java.awt.*;
+
 public class Main {
 
     public static void main(String[] args) {
-        new MyFrame();
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                MyFrame mainFrame = new MyFrame();//create a new instance
+            }
+        });
     }
 }

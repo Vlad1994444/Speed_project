@@ -1,13 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Car{
+public class Car {
 
     String pictureAddress;
     int wins;
     int xPosition;
     int yPosition;
-    int speedCar = (int)(Math.random()*10+1);
+    int speedCar = (int) (Math.random() * 10 + 1);
     Image image;
     String name;
 
