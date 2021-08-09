@@ -2,34 +2,36 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.TimerTask;
 
-public class MyFrame extends JFrame{
+public class MyFrame extends JFrame {
 
-    MyPanel panel;
-    MyFrame frame;
+    PanelForBackground panelForBackground;
+    PanelForMovement panelForMovement;
+    ImageIcon backImage = new ImageIcon("src\\road.png");
+    Dimension size = new Dimension(backImage.getIconWidth(), backImage.getIconHeight());
 
-    MyButton restart = new MyButton("Начать \nзаново", 20, 350, 130, 100);
+    Buttons restart;
 
-    Image road = new ImageIcon("src\\road.png").getImage();
-    Dimension size = new Dimension(road.getWidth(null), road.getHeight(null));
+    static boolean stopThreads = false;
 
     MyFrame() {
 
-        frame = this;
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setLayout(null);
+        panelForBackground = new PanelForBackground();
+        panelForMovement = new PanelForMovement();
+
         this.setPreferredSize(size);
-        this.setResizable(false);
+        this.setLayout(null);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        panel = new MyPanel();
-        panel.setBounds(0, 0, size.width, size.height);
-
+        restart = new Buttons("Restart", 10, 10, 150, 50);
         restart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                remove(panel);
+                stopThreads = true;
+                if(PanelForMovement.intermediateInformation!=null){// close intermediate window if it is opened
+                    PanelForMovement.intermediateInformation.dispose();
+                }
+                remove(panelForBackground);
                 dispose();//close the old frame of this instance
                 EventQueue.invokeLater(new Runnable() {
                     @Override
@@ -40,12 +42,20 @@ public class MyFrame extends JFrame{
             }
         });
 
-        this.add(panel);
-        this.add(restart);
+        JLayeredPane layeredPane = new JLayeredPane();
+        layeredPane.setBounds(0, 0, backImage.getIconWidth(), backImage.getIconHeight());
+        layeredPane.add(panelForBackground, Integer.valueOf(0));
+        layeredPane.add(panelForMovement, Integer.valueOf(1));
+        layeredPane.add(restart, Integer.valueOf(2));
 
-        this.pack();//"pack->setLoc->setVis" make window be in middle
-        this.setLocationRelativeTo(null);
+
+        this.add(layeredPane);
+        this.pack();
+        //this.setLocationRelativeTo(null);
         this.setVisible(true);
-    }
-}
 
+    }
+
+
+
+}
