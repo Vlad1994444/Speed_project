@@ -8,7 +8,8 @@ public class Car {
     int xPosition;
     int yPosition;
     int speedCar = (int) (Math.random() * 10 + 1);
-    Image image;
+    ImageIcon image;
+    //Image image;
     String name;
 
     public Car(String pictureAddress, int wins, int xPosition, int yPosition, String name) {
@@ -17,7 +18,9 @@ public class Car {
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.name = name;
-        image = new ImageIcon(pictureAddress).getImage();
+        //image = new ImageIcon(pictureAddress).getImage();
+        image = new ImageIcon(pictureAddress);
+
     }
 
     public Car(int wins, String name) {
@@ -25,8 +28,18 @@ public class Car {
         this.name = name;
     }
 
-    public Image getImage() {
+    //public Image getImage() {
+    public ImageIcon getImage() {
+
         return image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPictureAddress() {

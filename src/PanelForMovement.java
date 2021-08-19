@@ -14,10 +14,12 @@ public class PanelForMovement extends JPanel {
 
     Buttons start;
     Buttons intermediate;
+    Buttons result;
+
     static JFrame intermediateInformation;
 
     Car car1, car2, car3;
-    static Car[] cars;
+    Car[] cars;
 
     PanelForMovement() {
 
@@ -39,6 +41,15 @@ public class PanelForMovement extends JPanel {
                 }
             }
         });
+
+        result = new Buttons("Результат", 350, 0,150,50);
+        result.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new FinalResult(cars);
+            }
+        });
+
         intermediate = new Buttons("Промежуточный \nрезультат", 180, 0, 150, 50);
         intermediate.addActionListener(new ActionListener() {
             @Override
@@ -52,13 +63,16 @@ public class PanelForMovement extends JPanel {
 
         this.add(start);
         this.add(intermediate);
+        this.add(result);
         this.setOpaque(false);
 
     }
     public void paintComponent(Graphics g) {
         Graphics2D g2D = (Graphics2D) g;
         for (Car car : cars) {
-            g2D.drawImage(car.image, car.xPosition, car.yPosition, null);
+            //g2D.drawImage(car.image, car.xPosition, car.yPosition, null);
+            g2D.drawImage(car.image.getImage(), car.xPosition, car.yPosition, null);
+
         }
     }
 
@@ -75,7 +89,8 @@ public class PanelForMovement extends JPanel {
                         car.wins += 1;
                         System.out.println(car.wins);
                         for (Car anyCar : cars) {
-                            anyCar.yPosition = backStage.getIconHeight() - (anyCar.getImage().getHeight(null) / 2);
+                            //anyCar.yPosition = backStage.getIconHeight() - (anyCar.getImage().getHeight(null) / 2);
+                            anyCar.yPosition = backStage.getIconHeight() - (anyCar.getImage().getIconHeight() / 2);
                             anyCar.speedCar = (int) (Math.random() * 10 + 1);
                         }
                     }
