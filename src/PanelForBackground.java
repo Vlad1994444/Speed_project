@@ -3,7 +3,7 @@ import javax.swing.*;
 public class PanelForBackground extends JPanel {
 
     PanelForBackground panelForBackground;
-    ImageIcon backStage = new ImageIcon("src\\road.png");
+    ImageIcon backStage = new ImageIcon(getClass().getResource("/road.png"));
 
     PanelForBackground(){
 

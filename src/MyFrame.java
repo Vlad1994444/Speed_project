@@ -7,7 +7,7 @@ public class MyFrame extends JFrame {
 
     PanelForBackground panelForBackground;
     PanelForMovement panelForMovement;
-    ImageIcon backImage = new ImageIcon("src\\road.png");
+    ImageIcon backImage = new ImageIcon(getClass().getResource("/road.png"));
     Dimension size = new Dimension(backImage.getIconWidth(), backImage.getIconHeight());
 
     Buttons restart;

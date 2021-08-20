@@ -1,9 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 
 public class Car {
 
-    String pictureAddress;
+    URL pictureAddress;
     int wins;
     int xPosition;
     int yPosition;
@@ -12,7 +13,7 @@ public class Car {
     //Image image;
     String name;
 
-    public Car(String pictureAddress, int wins, int xPosition, int yPosition, String name) {
+    public Car(URL pictureAddress, int wins, int xPosition, int yPosition, String name) {
         this.pictureAddress = pictureAddress;
         this.wins = wins;
         this.xPosition = xPosition;
@@ -42,7 +43,7 @@ public class Car {
         this.name = name;
     }
 
-    public String getPictureAddress() {
+    public URL getPictureAddress() {
         return pictureAddress;
     }
 

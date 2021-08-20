@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SpeedProject:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpeedProject_jar</output-path>
+    <root id="archive" name="SpeedProject.jar">
+      <element id="module-output" name="SpeedProject" />
+    </root>
+  </artifact>
+</component>

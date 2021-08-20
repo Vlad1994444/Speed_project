@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class PanelForMovement extends JPanel {
 
     PanelForMovement panelForMovement;
-    ImageIcon backStage = new ImageIcon("src\\road.png");
+    ImageIcon backStage = new ImageIcon(getClass().getResource("/road.png"));
 
     static final int FIRST_ROAD = 30;
     static final int SECOND_ROAD = 160;
@@ -26,9 +26,12 @@ public class PanelForMovement extends JPanel {
         this.setLayout(null);
         this.setBounds(170, 10, 560, backStage.getIconHeight() - 50);
 
-        car1 = new Car("src\\car1.png", 0, PanelForMovement.FIRST_ROAD, 800, "Винтик");
-        car2 = new Car("src\\car2.png", 0, PanelForMovement.SECOND_ROAD, 800, "Болтик");
-        car3 = new Car("src\\car3.png", 0, PanelForMovement.THIRD_ROAD, 800, "Шпунтик");
+        car1 = new Car(getClass().getResource("/car1.png"),
+                0, PanelForMovement.FIRST_ROAD, 800, "Винтик");
+        car2 = new Car(getClass().getResource("/car2.png"),
+                0, PanelForMovement.SECOND_ROAD, 800, "Болтик");
+        car3 = new Car(getClass().getResource("/car3.png"),
+                0, PanelForMovement.THIRD_ROAD, 800, "Шпунтик");
         cars = new Car[]{car1, car2, car3};
 
         start = new Buttons("Start", 10, 0, 150, 50);
@@ -114,7 +117,7 @@ public class PanelForMovement extends JPanel {
 
                 //System.out.println(result);
                 //creating window to display result
-                ImageIcon icon = new ImageIcon("src\\racer.png");
+                ImageIcon icon = new ImageIcon(getClass().getResource("/racer.png"));
                 Dimension iconSize = new Dimension(icon.getIconWidth(), icon.getIconHeight());
 
                 intermediateInformation = new JFrame("Промежуточный результат");

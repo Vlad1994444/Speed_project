@@ -1,11 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class FinalResult extends JFrame {
 
     Buttons beginAgain;
-    ImageIcon imageIcon = new ImageIcon("src\\result.png");
+    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/result.png"));
 
     FinalResult(Car[]cars) {
         this.setLayout(null);
